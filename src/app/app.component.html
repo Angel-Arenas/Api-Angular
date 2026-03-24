@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="header">
+    <h2>{{ titulo }}</h2>
+  </div>
+  <div class="cards-grid" *ngIf="posts.length > 0">
+    <div class="card" *ngFor="let post of postsPaginados">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+      <div class="card-actions">
+        <span class="id">ID: {{ post.id }}</span>
+        <button class="eliminar-btn" (click)="eliminarPost(post.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="paginacion">
+  <button (click)="paginaAnterior()">Anterior</button>
+  <span>Página {{ paginaActual }}</span>
+  <button (click)="siguientePagina()">Siguiente</button>
+</div>
